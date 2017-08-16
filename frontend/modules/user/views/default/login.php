@@ -5,6 +5,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\authclient\widgets\AuthChoice;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
@@ -36,12 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-lg-5">
             <h3>Login with Facebook</h3>
-            <?=
-            yii\authclient\widgets\AuthChoice::widget([
+            <?php echo AuthChoice::widget([
                 'baseAuthUrl' => ['/user/default/auth'],
                 'popupMode' => false,
-            ])
-            ?>
+            ]); ?>
         </div>
     </div>
 </div>
