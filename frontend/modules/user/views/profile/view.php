@@ -17,16 +17,18 @@ use yii\helpers\HtmlPurifier;
 
 <hr>
 
-<h5>Friends, who are also following <?php echo Html::encode($user->username); ?>: </h5>
-<div class="row">
-    <?php foreach ($currentUser->getMutualSubscriptionsTo($user) as $item): ?>
-        <div class="col-md-12">
-            <a href="<?php echo Url::to(['/user/profile/view', 'nickname' => ($item['nickname']) ? $item['nickname'] : $item['id']]); ?>">
-                <?php echo Html::encode($item['username']); ?>
-            </a>
-        </div>                
-    <?php endforeach; ?>
-</div>
+<?php if ($currentUser): ?>
+    <h5>Friends, who are also following <?php echo Html::encode($user->username); ?>: </h5>
+    <div class="row">
+        <?php foreach ($currentUser->getMutualSubscriptionsTo($user) as $item): ?>
+            <div class="col-md-12">
+                <a href="<?php echo Url::to(['/user/profile/view', 'nickname' => ($item['nickname']) ? $item['nickname'] : $item['id']]); ?>">
+                    <?php echo Html::encode($item['username']); ?>
+                </a>
+            </div>                
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
 
 <hr>
 
