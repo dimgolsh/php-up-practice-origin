@@ -5,5 +5,8 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'storage' => [
+            'class' => 'common\components\Storage',
+        ],
     ],
 ];
