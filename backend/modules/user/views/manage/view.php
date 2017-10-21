@@ -44,9 +44,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at:datetime',
             'about:ntext',
             'type',
-            'nickname',     
+            'nickname',
+            [
+                'attribute' => 'roles',
+                'value' => function($user) {
+                    /* @var $user User */
+                    return implode(',', $user->getRoles());                    
+                }
+            ],
         ],
     ]) ?>
-
 
 </div>
